@@ -1,0 +1,20 @@
+{% extends 'examApp/base.html' %}
+{% block body_block %}
+
+<div class="jumbotron">
+  {% if registered %}
+    <h1>Thankyou for Registering!</h1>
+  {% else %}
+    <h1>Register here</h1>
+
+    <form method="POST">
+      {% csrf_token %}
+      {{user_form.as_p}}
+      {{student_form.as_p}}
+      <input type="submit" name="" value="Sign Up!">
+    </form>
+
+  {% endif %}
+
+</div>
+{% endblock %}
